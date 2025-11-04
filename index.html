@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it">
+<head>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jelisia</title>
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="app.js"></script>
+<script defer src="auth.js"></script>
+
+  <style>
+    body, html { height: 100%; }
+    .intro { height:100%; display:grid; place-items:center; background: var(--bg); }
+    .intro-logo { width: 180px; height: 180px; border-radius: 36px; display:grid; place-items:center;
+      box-shadow: var(--shadow-lg); background: var(--primary); animation: fadeout 2s ease forwards 1.6s; }
+    .intro-title { color: var(--text); font-size: 1.4rem; margin-top: 1rem; }
+    @keyframes fadeout { to { opacity: 0; transform: scale(0.98); } }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(()=>{
+        try{
+          const remember = localStorage.getItem('jelisia_remember') === 'true';
+          const session = JSON.parse(localStorage.getItem('jelisia_session')||'null');
+          if(remember && session) {
+            location.replace('home.html');
+          } else {
+            location.replace('home.html?showLogin=1');
+          }
+        }catch(e){ location.replace('home.html?showLogin=1'); }
+      }, 2000);
+    });
+  </script>
+</head>
+<body>
+  <main class="intro">
+    <div class="stack">
+      <div class="intro-logo">
+        <img src="logo.png" alt="Jelisia" style="width:100px;height:100px;border-radius:20px;" />
+      </div>
+      <div class="intro-title">Jelisia</div>
+    </div>
+  </main>
+</body>
+</html>

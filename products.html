@@ -1,0 +1,72 @@
+<!doctype html><html lang='it'><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jelisia</title>
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="app.js"></script>
+<script defer src="auth.js"></script>
+</head><body>
+<header class="site-header">
+  <div class="container header-3col">
+    <div class="header-left">
+      <button id="logoMenuBtn" class="logo-btn pill" aria-haspopup="true" aria-expanded="false">
+        <img src="logo.png" alt="Jelisia" class="brand-logo"/>
+        <span id="brandUserName" class="brand-username">Jelisia</span>
+        <span class="logo-caret">▾</span>
+      </button>
+      <div id="userMenu" class="dropdown" role="menu" aria-hidden="true">
+        <div class="dropdown-head">
+          <img id="menuAvatar" src="logo.png" class="avatar" alt="Avatar"/>
+          <div>
+            <div id="menuUsername" class="menu-username">Ospite</div>
+            <div class="menu-email note"></div>
+          </div>
+        </div>
+        <a href="profile.html" class="dropdown-item" data-auth="true">Modifica profilo</a>
+        <a href="orders.html" class="dropdown-item" data-auth="true">I miei ordini</a>
+        <a href="admin.html" class="dropdown-item" data-admin="true">Admin</a>
+        <a href="#" id="logoutLink" class="dropdown-item danger" data-auth="true">Logout</a>
+        <a href="#" id="openLoginLink" class="dropdown-item" data-auth-hide="true">Login</a>
+        <a href="#" id="openRegisterLink" class="dropdown-item" data-auth-hide="true">Registrati</a>
+      </div>
+    </div>
+    <nav class="header-center nav">
+      <a href="home.html" class="pill">Home</a>
+      <a href="products.html" class="pill">Prodotti</a>
+      <a href="gallery.html" class="pill">Gallery</a>
+      <a href="social.html" class="pill">🗣️ Di’ la tua</a>
+      <a href="editor.html" class="pill">Editor J</a>
+      <a href="help.html" class="pill">Help</a>
+      <a href="about.html" class="pill">Chi siamo</a>
+    </nav>
+    <div class="header-right">
+      <a href="cart.html" class="pill">🛍️ Carrello</a>
+    </div>
+  </div>
+</header>
+<main class='container'>
+<section class="section-head">
+  <h1>Prodotti</h1>
+  <div class="filters">
+    <input id="searchInput" type="search" placeholder="Cerca prodotti..." />
+    <select id="categorySelect">
+      <option value="">Tutte le categorie</option>
+      <option>Borse</option><option>Vestiti</option><option>Cappelli</option><option>Accessori</option><option>Abiti da danza</option>
+    </select>
+    <button id="clearFilters" class="btn-outline pill">Pulisci</button>
+  </div>
+</section>
+<div id="productsGrid" class="grid cards"></div>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2025 Jelisia — Artigianato fatto a mano</p>
+    <p class="payments">Metodi di pagamento: Visa, Mastercard, PayPal, Bonifico</p>
+  </div>
+</footer>
+<script defer src='products.js'></script></body></html>
